@@ -1,3 +1,9 @@
+TO RUN:
+npm i -g http-server
+npm i
+http-server -c-1
+go to http://192.168.0.14:8080/
+
 # Front End Test
 An AngularJS focused take home test for Front-end Developers.
 

@@ -1,0 +1,48 @@
+<!doctype html>
+<script src="angular.min.js"></script>
+<script src="node_modules/chart.js/dist/Chart.min.js"></script>
+<script src="node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
+
+
+<link rel="stylesheet" href="App.css">
+<script src="weatherController.js"></script>
+<html ng-app="Weather">
+  <head>
+    <title>My AngularJS App</title>
+    
+  </head>
+  <body ng-controller="WeatherController">
+  <div class="box">
+    <div class="left">
+      {{weatherData.location.city}}, 
+      {{weatherData.location.region}}, {{weatherData.location.country}} 
+    </div>
+    <div class="right">
+      {{weatherData.item.condition.temp}}F
+    </div>
+    <div class="center">
+      {{weatherData.item.condition.text}}
+    </div>
+    <button ng-click="toggle()">Show Extra</button>
+    <div ng-show="visible">
+      <div class="left">
+      Wind Speed: {{weatherData.wind.speed}} <br/>
+      </div>
+      <div class="right">
+      Humidity: {{weatherData.atmosphere.humidity}} <br/>
+      </div>
+      <div class="center">
+      Pressure: {{weatherData.atmosphere.pressure}} <br/>
+      Sunrise/Set: {{weatherData.astronomy.sunrise}} / {{weatherData.astronomy.sunset}}
+      </div>
+    </div> 
+    <canvas id="line" class="chart chart-line" chart-data="data"
+      chart-labels="labels" chart-series="series" chart-options="options"
+      chart-dataset-override="datasetOverride" chart-click="onClick" >
+    </canvas>
+  </div>
+  <div>
+    
+  </div>
+  </body>
+</html>
